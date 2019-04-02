@@ -1,6 +1,6 @@
 <template>
-  <v-container>
-    <v-layout row wrap>
+  <v-container text-xs-center>
+    <v-layout row wrap class="mb-3">
       <v-flex xs12 sm6 class="text-sm-right">
         <v-btn large router to="/meetup" class="info">Explore Meetups</v-btn>
       </v-flex>
@@ -11,8 +11,17 @@
     <v-layout>
       <v-flex xs12>
         <v-carousel>
-          <v-carousel-item v-for="meetup in meetups" :src="meetup.imageURL" :key="meetup.id"></v-carousel-item>
+          <v-carousel-item v-for="meetup in meetups" :src="meetup.imageURL" :key="meetup.id">
+            <v-flex>
+              <div class="title">{{ meetup.title }}</div>
+            </v-flex>
+          </v-carousel-item>
         </v-carousel>
+      </v-flex>
+    </v-layout>
+    <v-layout xs12 class="mt-3">
+      <v-flex>
+        <h2>Join our meetups</h2>
       </v-flex>
     </v-layout>
   </v-container>
@@ -40,3 +49,14 @@ export default {
   },
 };
 </script>
+<style scoped>
+.title {
+  position: absolute;
+  bottom: 50px;
+  padding: 20px;
+  background-color: rgba(0, 0, 0, 0.5);
+  color: white;
+  left: 50%;
+  transform: translate(-50%);
+}
+</style>
